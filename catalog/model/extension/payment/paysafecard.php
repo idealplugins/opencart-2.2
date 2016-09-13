@@ -12,7 +12,7 @@
  *
  */
 
-class ModelPaymentPaysafecard extends Model 
+class ModelExtensionPaymentPaysafecard extends Model
 {
 
 	public $currencies = array('EUR');

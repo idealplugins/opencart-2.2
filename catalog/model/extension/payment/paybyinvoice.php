@@ -8,7 +8,7 @@
  *  @author		Yellow Melon B.V. 
  */ 
 
-class ModelPaymentpaybyinvoice extends Model {
+class ModelExtensionPaymentPaybyinvoice extends Model {
 
   	public function getMethod($address, $total) {
 		$this->language->load('payment/paybyinvoice');

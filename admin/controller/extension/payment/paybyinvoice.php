@@ -8,7 +8,7 @@
  *  @author		Yellow Melon B.V. 
  */ 
 
-class ControllerPaymentpaybyinvoice extends Controller 
+class ControllerExtensionPaymentPaybyinvoice extends Controller
 {
 	private $error = array(); 
 

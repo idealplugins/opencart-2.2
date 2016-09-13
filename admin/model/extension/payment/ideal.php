@@ -12,7 +12,7 @@
  *
  */
 
-class ModelPaymentideal extends Model 
+class ModelExtensionPaymentIdeal extends Model
 {
 
   	public function createTable() 

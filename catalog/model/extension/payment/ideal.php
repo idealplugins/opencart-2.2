@@ -12,7 +12,7 @@
  *
  */
 
-class ModelPaymentIdeal extends Model 
+class ModelExtensionPaymentIdeal extends Model
 {
 
 	public $currencies = array('EUR');

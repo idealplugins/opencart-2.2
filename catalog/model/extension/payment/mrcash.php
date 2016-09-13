@@ -12,7 +12,7 @@
  *
  */
 
-class ModelPaymentMrcash extends Model 
+class ModelExtensionPaymentMrcash extends Model
 {
 
 	public $currencies = array('EUR');

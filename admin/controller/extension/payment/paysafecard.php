@@ -12,7 +12,7 @@
  *
  */
 
-class ControllerPaymentpaysafecard extends Controller 
+class ControllerExtensionPaymentPaysafecard extends Controller
 {
 	private $error = array(); 
 

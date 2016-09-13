@@ -12,7 +12,7 @@
  *
  */
 
-class ModelPaymentcreditcard extends Model 
+class ModelExtensionPaymentCreditcard extends Model
 {
 
   	public function createTable() 
