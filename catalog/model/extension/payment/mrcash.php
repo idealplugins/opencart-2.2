@@ -21,7 +21,7 @@ class ModelExtensionPaymentMrcash extends Model
 
   	public function getMethod($address, $total) 
   	{
-		$this->load->language('payment/mrcash');
+		$this->load->language('extension/payment/mrcash');
 
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "zone_to_geo_zone WHERE geo_zone_id = '" . 
 			(int)$this->config->get('mrcash_geo_zone_id') . "' AND country_id = '" . (int)$address['country_id'] . 

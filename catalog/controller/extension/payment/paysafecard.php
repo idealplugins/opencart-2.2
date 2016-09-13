@@ -22,7 +22,7 @@ class ControllerExtensionPaymentPaysafecard extends Controller
 
     public function index()
     {
-        $this->language->load('payment/paysafecard');
+        $this->language->load('extension/payment/paysafecard');
 
         $data['text_title'] = $this->language->get('text_title');
         $data['text_wait'] = $this->language->get('text_wait');
@@ -31,11 +31,11 @@ class ControllerExtensionPaymentPaysafecard extends Controller
 
         $data['custom'] = $this->session->data['order_id'];
 
-        if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/paysafecard.tpl')) {
-            return $this->load->view($this->config->get('config_template') . '/template/payment/paysafecard.tpl',
+        if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/extension/payment/paysafecard.tpl')) {
+            return $this->load->view($this->config->get('config_template') . '/template/extension/payment/paysafecard.tpl',
                 $data);
         } else {
-            return $this->load->view('payment/paysafecard.tpl', $data);
+            return $this->load->view('extension/payment/paysafecard.tpl', $data);
         }
     }
 
@@ -63,7 +63,7 @@ class ControllerExtensionPaymentPaysafecard extends Controller
 
             $targetPay->setCancelUrl($this->url->link('checkout/cart', '', 'SSL'));
             $targetPay->setReturnUrl($this->url->link('checkout/success', '', 'SSL'));
-            $targetPay->setReportUrl($this->url->link('payment/paysafecard/callback',
+            $targetPay->setReportUrl($this->url->link('extension/payment/paysafecard/callback',
                 'order_id=' . $this->session->data['order_id'], 'SSL'));
 
             $bankUrl = $targetPay->startPayment();

@@ -11,7 +11,7 @@
 class ModelExtensionPaymentPaybyinvoice extends Model {
 
   	public function getMethod($address, $total) {
-		$this->language->load('payment/paybyinvoice');
+		$this->language->load('extension/payment/paybyinvoice');
 
         $sql = "SELECT * FROM " . DB_PREFIX . "zone_to_geo_zone WHERE geo_zone_id = '" .
         		(int)$this->config->get('paybyinvoice_geo_zone_id') . "' AND country_id = '" .

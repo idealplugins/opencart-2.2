@@ -21,7 +21,7 @@ class ModelExtensionPaymentCreditcard extends Model
 
   	public function getMethod($address, $total) 
   	{
-		$this->load->language('payment/creditcard');
+		$this->load->language('extension/payment/creditcard');
 
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "zone_to_geo_zone WHERE geo_zone_id = '" . 
 			(int)$this->config->get('creditcard_geo_zone_id') . "' AND country_id = '" . (int)$address['country_id'] . 

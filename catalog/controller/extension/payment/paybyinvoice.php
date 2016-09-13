@@ -42,7 +42,7 @@ class ControllerExtensionPaymentPaybyinvoice extends Controller
 
             $targetPay->setCancelUrl($this->url->link('checkout/cart', '', 'SSL'));
             $targetPay->setReturnUrl($this->url->link('checkout/success', '', 'SSL'));
-            $targetPay->setReportUrl($this->url->link('payment/paybyinvoice/callback',
+            $targetPay->setReportUrl($this->url->link('extension/payment/paybyinvoice/callback',
                 'order_id=' . $this->session->data['order_id'], 'SSL'));
             $targetPay->setCurrency($order_info['currency_code']);
 
@@ -244,7 +244,7 @@ class ControllerExtensionPaymentPaybyinvoice extends Controller
 
     protected function index()
     {
-        $this->language->load('payment/paybyinvoice');
+        $this->language->load('extension/payment/paybyinvoice');
 
         $this->data['text_credit_card'] = $this->language->get('text_credit_card');
         $this->data['text_wait'] = $this->language->get('text_wait');

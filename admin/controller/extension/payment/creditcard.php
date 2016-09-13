@@ -19,7 +19,7 @@ class ControllerExtensionPaymentCreditcard extends Controller
 	public function index() 
 	{
 
-		$this->load->language('payment/creditcard');
+		$this->load->language('extension/payment/creditcard');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 		
@@ -30,7 +30,7 @@ class ControllerExtensionPaymentCreditcard extends Controller
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
-			$this->response->redirect($this->url->link('extension/payment', 'token=' . $this->session->data['token'], 'SSL'));
+			$this->response->redirect($this->url->link('extension/extension', 'token=' . $this->session->data['token'].'&type=payment', 'SSL'));
 		}
 
 
@@ -85,17 +85,17 @@ class ControllerExtensionPaymentCreditcard extends Controller
 
    		$data['breadcrumbs'][] = array(
        		'text'      => $this->language->get('text_payment'),
-			'href'      => $this->url->link('extension/payment', 'token=' . $this->session->data['token'], 'SSL'),
+			'href'      => $this->url->link('extension/extension', 'token=' . $this->session->data['token'].'&type=payment', 'SSL'),
    		);
 
    		$data['breadcrumbs'][] = array(
        		'text'      => $this->language->get('heading_title'),
-			'href'      => $this->url->link('payment/creditcard', 'token=' . $this->session->data['token'], 'SSL'),
+			'href'      => $this->url->link('extension/payment/creditcard', 'token=' . $this->session->data['token'], 'SSL'),
 		);
 
-		$data['action'] = $this->url->link('payment/creditcard', 'token=' . $this->session->data['token'], 'SSL');
+		$data['action'] = $this->url->link('extension/payment/creditcard', 'token=' . $this->session->data['token'], 'SSL');
 
-		$data['cancel'] = $this->url->link('extension/payment', 'token=' . $this->session->data['token'], 'SSL');
+		$data['cancel'] = $this->url->link('extension/extension', 'token=' . $this->session->data['token'].'&type=payment', 'SSL');
 
 		if (isset($this->request->post['creditcard_rtlo'])) {
 			$data['creditcard_rtlo'] = $this->request->post['creditcard_rtlo'];
@@ -174,16 +174,16 @@ class ControllerExtensionPaymentCreditcard extends Controller
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 				
-		$this->response->setOutput($this->load->view('payment/creditcard.tpl', $data));
+		$this->response->setOutput($this->load->view('extension/payment/creditcard.tpl', $data));
 	}
 
 	private function validate() 
 	{
-		if (!$this->user->hasPermission('modify', 'payment/creditcard')) {
+		if (!$this->user->hasPermission('modify', 'extension/payment/creditcard')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 		
-		if (!$this->request->post['creditcard_rtlo']) {
+		if (!$this->request->post['creditcard_rtlo'] || $this->request->post['creditcard_rtlo'] == "93929") {
 			$this->error['rtlo'] = $this->language->get('error_rtlo');
 		}
 
@@ -196,8 +196,8 @@ class ControllerExtensionPaymentCreditcard extends Controller
 
 	public function install() 
 	{
-       $this->load->model('payment/creditcard');
-       $this->model_payment_creditcard->createTable();
+       $this->load->model('extension/payment/creditcard');
+       $this->model_extension_payment_creditcard->createTable();
 
        $this->load->model('setting/setting');
        $this->model_setting_setting->editSetting('creditcard', array('creditcard_status'=>1));

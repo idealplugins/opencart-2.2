@@ -22,7 +22,7 @@ class ControllerExtensionPaymentCreditcard extends Controller
 
     public function index()
     {
-        $this->language->load('payment/creditcard');
+        $this->language->load('extension/payment/creditcard');
 
         $data['text_title'] = $this->language->get('text_title');
         $data['text_wait'] = $this->language->get('text_wait');
@@ -31,10 +31,10 @@ class ControllerExtensionPaymentCreditcard extends Controller
 
         $data['custom'] = $this->session->data['order_id'];
 
-        if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/creditcard.tpl')) {
-            return $this->load->view($this->config->get('config_template') . '/template/payment/creditcard.tpl', $data);
+        if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/extension/payment/creditcard.tpl')) {
+            return $this->load->view($this->config->get('config_template') . '/template/extension/payment/creditcard.tpl', $data);
         } else {
-            return $this->load->view('payment/creditcard.tpl', $data);
+            return $this->load->view('extension/payment/creditcard.tpl', $data);
         }
     }
 
@@ -62,7 +62,7 @@ class ControllerExtensionPaymentCreditcard extends Controller
 
             $targetPay->setCancelUrl($this->url->link('checkout/cart', '', 'SSL'));
             $targetPay->setReturnUrl($this->url->link('checkout/success', '', 'SSL'));
-            $targetPay->setReportUrl($this->url->link('payment/creditcard/callback',
+            $targetPay->setReportUrl($this->url->link('extension/payment/creditcard/callback',
                 'order_id=' . $this->session->data['order_id'], 'SSL'));
 
             $bankUrl = $targetPay->startPayment();

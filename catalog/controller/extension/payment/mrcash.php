@@ -22,7 +22,7 @@ class ControllerExtensionPaymentMrcash extends Controller
 
     public function index()
     {
-        $this->language->load('payment/mrcash');
+        $this->language->load('extension/payment/mrcash');
 
         $data['text_title'] = $this->language->get('text_title');
         $data['text_wait'] = $this->language->get('text_wait');
@@ -31,10 +31,10 @@ class ControllerExtensionPaymentMrcash extends Controller
 
         $data['custom'] = $this->session->data['order_id'];
 
-        if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/mrcash.tpl')) {
-            return $this->load->view($this->config->get('config_template') . '/template/payment/mrcash.tpl', $data);
+        if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/extension/payment/mrcash.tpl')) {
+            return $this->load->view($this->config->get('config_template') . '/template/extension/payment/mrcash.tpl', $data);
         } else {
-            return $this->load->view('payment/mrcash.tpl', $data);
+            return $this->load->view('extension/payment/mrcash.tpl', $data);
         }
     }
 
@@ -62,7 +62,7 @@ class ControllerExtensionPaymentMrcash extends Controller
 
             $targetPay->setCancelUrl($this->url->link('checkout/cart', '', 'SSL'));
             $targetPay->setReturnUrl($this->url->link('checkout/success', '', 'SSL'));
-            $targetPay->setReportUrl($this->url->link('payment/mrcash/callback',
+            $targetPay->setReportUrl($this->url->link('extension/payment/mrcash/callback',
                 'order_id=' . $this->session->data['order_id'], 'SSL'));
 
             $bankUrl = $targetPay->startPayment();

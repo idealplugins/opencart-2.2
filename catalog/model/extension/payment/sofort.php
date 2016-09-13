@@ -21,7 +21,7 @@ class ModelExtensionPaymentSofort extends Model
 
   	public function getMethod($address, $total) 
   	{
-		$this->load->language('payment/sofort');
+		$this->load->language('extension/payment/sofort');
 
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "zone_to_geo_zone WHERE geo_zone_id = '" . 
 			(int)$this->config->get('sofort_geo_zone_id') . "' AND country_id = '" . (int)$address['country_id'] . 
