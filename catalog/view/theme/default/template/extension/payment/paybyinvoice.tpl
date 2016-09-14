@@ -22,7 +22,7 @@ $targetPay = new TargetPayCore ("AFT", 93929, "e59dbd219e068daade7139be42c5dfd5"
 <script type="text/javascript"><!--
 $('#button-confirm').bind('click', function() {
 	$.ajax({
-		url: 'index.php?route=payment/paybyinvoice/send',
+		url: 'index.php?route=extension/payment/paybyinvoice/send',
 		type: 'post',
 		data: $('#payment :input'),
 		dataType: 'json',		

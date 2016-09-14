@@ -43,7 +43,7 @@
 <script type="text/javascript">
 $('#button-confirm').bind('click', function() {
 	$.ajax({
-		url: 'index.php?route=payment/sofort/send',
+		url: 'index.php?route=extension/payment/sofort/send',
 		type: 'post',
 		data: $('#payment :input'),
 		dataType: 'json',		

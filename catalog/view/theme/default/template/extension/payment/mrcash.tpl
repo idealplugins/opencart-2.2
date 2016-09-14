@@ -26,7 +26,7 @@
 <script type="text/javascript">
 $('#button-confirm').bind('click', function() {
 	$.ajax({
-		url: 'index.php?route=payment/mrcash/send',
+		url: 'index.php?route=extension/payment/mrcash/send',
 		type: 'post',
 		data: $('#payment :input'),
 		dataType: 'json',		

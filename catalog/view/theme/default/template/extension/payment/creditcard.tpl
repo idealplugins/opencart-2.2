@@ -26,7 +26,7 @@
 <script type="text/javascript">
 $('#button-confirm').bind('click', function() {
 	$.ajax({
-		url: 'index.php?route=payment/creditcard/send',
+		url: 'index.php?route=extension/payment/creditcard/send',
 		type: 'post',
 		data: $('#payment :input'),
 		dataType: 'json',		

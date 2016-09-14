@@ -26,7 +26,7 @@
 <script type="text/javascript">
 $('#button-confirm').bind('click', function() {
 	$.ajax({
-		url: 'index.php?route=payment/paysafecard/send',
+		url: 'index.php?route=extension/payment/paysafecard/send',
 		type: 'post',
 		data: $('#payment :input'),
 		dataType: 'json',		

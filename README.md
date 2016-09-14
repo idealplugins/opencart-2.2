@@ -1,4 +1,4 @@
-# iDEAL plugin for Opencart 2.2
+# iDEAL plugin for Opencart 2.3
 
 ## Usage
 Use this plugin to add support for iDEAL, Mister Cash, Sofort and other payment methods of 
@@ -26,3 +26,7 @@ Check out the specific installation instructions and tips on https://www.idealpl
 ## Troubleshooting
 
 Please see the FAQ on https://www.idealplugins.nl/opencart2.2#tab_help
+
+## Opencart 2.2
+Since Opencart changed its extension structure in version 2.3 previous versions are no longer compatible.
+If you have a webshop running Opencart 2.2 consider upgrading your store, or install the 2.2 version of this plugin: https://github.com/idealplugins/opencart-2.2/releases/tag/2.2

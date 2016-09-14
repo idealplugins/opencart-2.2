@@ -47,7 +47,7 @@ $bankList = $targetPay->getBankList();
 <script type="text/javascript">
 $('#button-confirm').bind('click', function() {
 	$.ajax({
-		url: 'index.php?route=payment/ideal/send',
+		url: 'index.php?route=extension/payment/ideal/send',
 		type: 'post',
 		data: $('#payment :input'),
 		dataType: 'json',		
