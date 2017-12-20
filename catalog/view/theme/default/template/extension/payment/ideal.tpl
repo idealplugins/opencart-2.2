@@ -11,10 +11,6 @@
  *	@author		Yellow Melon B.V. / www.idealplugins.nl
  *
  */
-
-require_once ("system/helper/targetpay.class.php");
-$targetPay = new TargetPayCore ("IDE", 93929, "bc4ea48b2540494ec38cbfa99aef6617", "nl", false);
-$bankList = $targetPay->getBankList();
 ?>
 
 <h2><?php echo $text_title; ?></h2>
@@ -27,7 +23,7 @@ $bankList = $targetPay->getBankList();
 		<p>
 		<select name="bank_id">
 		<?php 
-		foreach ($bankList as $id => $name) 
+		foreach ($banks as $id => $name) 
 			echo "<option value=\"".$id."\">".$name."</option>\r\n";
 		?>
 		</select>
